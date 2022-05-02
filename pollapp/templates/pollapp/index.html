@@ -1,0 +1,44 @@
+{% extends 'pollapp/layout.html' %} 
+
+{% block title %}<title>Poll Home</title>{% endblock %}
+
+{% block content %}
+<header class="header">
+	<h1>Django {{appname}}</h1>
+</header>
+
+<main class="wraper">
+	<div class="container">
+
+		<div class="btn-create">
+			<a href="{% url 'create' %}">Create Poll+</a>
+		</div>
+
+		
+
+		<table class="data-class">
+			<th>Questions</th>
+			<th>Vote</th>
+			<th>Results</th>
+			{% for poll in polls %}
+			<tr>
+				<td><strong>{{poll.question}}</strong></td>
+				<td>
+					<div class="btn btn-secondary">
+						<a href="{% url 'vote' poll.id %}">Vote</a>
+					<div>
+				</td>
+				<td>
+					<div class="btn btn-info">
+						<a href="{% url 'results' poll.id %}">Results</a>
+					<div>
+				</td>
+			</tr>
+			{% endfor %}
+
+		</table>
+		
+	</div>
+</main>
+
+{% endblock %}

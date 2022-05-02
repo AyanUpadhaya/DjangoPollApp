@@ -1,0 +1,44 @@
+{% extends 'pollapp/layout.html' %} 
+
+{% block title %}<title>Poll Vote</title>{% endblock %}
+
+{% block content %}
+<header class="header">
+	<h1>Vote?</h1>
+</header>
+
+<main class="wraper">
+	<div class="container">
+
+		<form method="POST">
+			{% csrf_token %}
+
+			<div class="form-group">
+				<h2>{{poll.question}}</h2>
+			</div>
+
+			<div class="form-group">
+				<input type="radio" name='poll' value="option1">
+				{{poll.option_one}}
+			</div>
+
+			<div class="form-group">
+				<input type="radio" name='poll' value="option2">
+				{{poll.option_two}}
+			</div>
+
+			<div class="form-group">
+				<input type="radio" name='poll' value="option3">
+				{{poll.option_three}}
+			</div>
+
+			
+
+			<input type="submit" name="" value="Vote" class="btn-submit">
+			
+		</form>
+
+	</div>
+</main>
+
+{% endblock %}

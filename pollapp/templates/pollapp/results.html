@@ -1,0 +1,25 @@
+{% extends 'pollapp/layout.html' %} 
+
+{% block title %}<title>Poll Results</title>{% endblock %}
+
+{% block content %}
+<header class="header">
+	<h1>Results</h1>
+</header>
+
+<main class="wraper">
+	<div class="container">
+		<h3 class="result-heading">{{poll.question}}</h3>
+		<ul class="list-group">
+			<li>{{poll.option_one}} - {{poll.option_one_count}}</li>
+			<li>{{poll.option_two}} - {{poll.option_two_count}}</li>
+			<li>{{poll.option_three}} - {{poll.option_three_count}}</li>
+		</ul>
+		<div class="btn-home">
+			<a href="{% url 'home' %}">Home</a>
+		</div>
+
+	</div>
+</main>
+
+{% endblock %}
